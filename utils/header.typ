@@ -1,10 +1,10 @@
-#import "./fonts.typ": 字号, 字体
+#import "./fonts.typ": thesis_font_size, thesis_font
 
 #let header(
   stroke: 0.5pt,
   spacing: 0.5em,
-  font: 字体.宋体,
-  size: 字号.小五,
+  font: thesis_font.times,
+  size: thesis_font_size.normal,
   left: none,
   right: none,
   center: none,
@@ -50,7 +50,7 @@
       }
     }
     context [
-      #set text(字号.小五)
+      #set text(thesis_font_size.normal)
       #let page-numbering = page.numbering
       #if page-numbering == none {
         page-numbering = "1"

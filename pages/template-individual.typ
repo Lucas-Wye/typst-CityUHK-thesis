@@ -1,4 +1,4 @@
-#import "../utils/fonts.typ": 字号, 字体
+#import "../utils/fonts.typ": thesis_font_size, thesis_font
 #import "../utils/datetime-display.typ": datetime-display
 #import "../utils/twoside.typ": twoside-pagebreak
 
@@ -11,12 +11,11 @@
 
   context {
     twoside-pagebreak
-    set text(font: 字体.仿宋)
-
+    set text(font: thesis_font.times)
 
     align(
       center,
-      text(size: 字号.三号, weight: "bold")[
+      text(size: thesis_font_size.lllarge, weight: "bold")[
         #show heading: x => x.body
         #heading(pagetitle, numbering: none, level: titlelevel, outlined: outlined)
         #v(1em)],
@@ -24,11 +23,9 @@
 
     block(width: 100%)[
       #set par(justify: true)
-      #set text(size: 字号.四号)
+      #set text(size: thesis_font_size.normal)
       #s
     ]
-
-
 
   }
 }

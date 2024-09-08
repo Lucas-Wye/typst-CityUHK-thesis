@@ -10,7 +10,7 @@
         return numbering("A ", ..numbers.pos().slice(level))
       }
     },
-    supplement: [附录],
+    supplement: [Appendix],
   )
 
   body

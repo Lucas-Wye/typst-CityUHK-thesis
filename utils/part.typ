@@ -1,4 +1,4 @@
-#import "./fonts.typ": 字号, 字体
+#import "./fonts.typ": thesis_font_size, thesis_font
 #import "./twoside.typ": *
 #let part = figure.with(
   kind: "part",
@@ -57,10 +57,10 @@
       [
         #v(0.1fr)
         #set align(center)
-        #set text(font: 字体.黑体, size: 48pt)
+        #set text(font: thesis_font.times, size: 48pt)
         #strong(it.counter.display(it.numbering))<mzt:no-header-footer>
 
-        #set text(font: 字体.仿宋, size: 字号.小初)
+        #set text(font: thesis_font.times, size: thesis_font_size.lllarge)
         #strong(it.body)
         #v(0.2fr)
       ]
@@ -85,7 +85,7 @@
       } + [ ] + it.element.body
     )
 
-      text(size: 字号.三号, weight: "bold", res)
+      text(size: thesis_font_size.llarge, weight: "bold", res)
     } else {
       // we're doing indenting here
       h(1.5em * (it.level - 1)) + it

@@ -3,7 +3,7 @@
 
 
 #let main-outline(
-  title: "目录",
+  title: "Table of contents",
   titlelevel: 2,
   outlined: false,
   ..args,
@@ -13,7 +13,7 @@
 }
 
 #let figure-outline(
-  title: "图目录",
+  title: "List of figures",
   titlelevel: 2,
   outlined: false,
   ..args,
@@ -27,7 +27,7 @@
 }
 
 #let table-outline(
-  title: "表目录",
+  title: "List of tables",
   titlelevel: 2,
   outlined: false,
   ..args,

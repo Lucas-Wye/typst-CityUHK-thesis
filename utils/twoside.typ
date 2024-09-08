@@ -8,9 +8,9 @@
 #let show-twoside-pagebreak(s, twoside: true) = {
   show metadata.where(value: <mzt:twoside-pagebreak>): pagebreak(
     weak: true,
-    to: if twoside {
-      "odd"
-    },
+    // to: if twoside {
+    //   "odd"
+    // },
   )
 
   show metadata.where(value: <mzt:twoside-emptypage>): [
@@ -22,16 +22,16 @@
   show metadata.where(value: <mzt:twoside-numbering-footer>): [
     #if twoside {
       footer(
-        left: numbering => locate(loc => if calc.even(loc.page()) {
-          numbering
-        }),
-        right: numbering => locate(loc => if not calc.even(loc.page()) {
-          numbering
-        }),
+        center: numbering => numbering,
+        // left: numbering => locate(loc => if calc.even(loc.page()) {
+        //   numbering
+        // }),
+        // right: numbering => locate(loc => if not calc.even(loc.page()) {
+        //   numbering
+        // }),
       )
     } else {
       footer(center: numbering => numbering)
-
     }
   ]
   s
