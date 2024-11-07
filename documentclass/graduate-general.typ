@@ -16,6 +16,7 @@
 
 
 #import "../dependency/i-figured.typ"
+#import "../dependency/lovelace.typ"
 
 #let show-outline-indent(s) = {
 
@@ -104,9 +105,11 @@
 
   // Reference
   show: show-set-supplement
-  show figure: i-figured.show-figure
+  show figure: i-figured.show-figure.with(extra-prefixes: (algorithm: "alg:"))
   show math.equation.where(block: true): i-figured.show-equation
   show figure.where(kind: table): set figure.caption(position: top)
+  show figure.where(kind: "algorithm"): set figure(supplement: [Algorithm])
+  show figure.where(kind: "algorithm"): set figure.caption(position: top)
 
   show: show-bilingual-bibliography
   doc
