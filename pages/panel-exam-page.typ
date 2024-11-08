@@ -8,18 +8,22 @@
   context {
     twoside-pagebreak
     set page(
-      header-ascent: 50mm,
-      footer-descent: 50mm,
+      margin: (
+        x: 3.27cm,
+        bottom: 2.5cm,
+        top: 2.5cm,
+      ),
     )
     set text(font: thesis_font.times)
 
     align(
       center,
-      text(size: thesis_font_size.lllarge)[
+      text(size: thesis_font_size.llarge)[
         #show heading: info.univ-en + "\n" + pagetitle
         #heading(pagetitle, numbering: none, level: 1, outlined: true)
         #v(1em)
       ],
+      // TODO: make heading smaller
     )
 
     set grid(

@@ -9,8 +9,7 @@
 
   context {
     set page(
-      header-ascent: 50mm,
-      footer-descent: 50mm,
+      margin: (left: 45mm, right: 45mm, top: 50mm, bottom: 50mm),
     )
     // \newgeometry{left=45mm,right=45mm,top=50mm,bottom=50mm,noheadfoot,nomarginpar}
     set grid(
@@ -27,12 +26,12 @@
     set align(center)
 
     block(
-      width: 80%,
       [
         #set text(size: thesis_font_size.llarge)
         #grid(
           columns: (auto),
           align: (center),
+          v(1.2cm),
           text(font: thesis_font.times, info.univ-en),
           text(font: thesis_font.minglu, info.univ-zh)
         )
@@ -41,7 +40,7 @@
     v(54pt)
 
     block(
-      width: 80%,
+      // width: 80%,
       [
         #set text(size: thesis_font_size.llarge)
         #grid(
@@ -114,7 +113,6 @@
         )
       ],
     )
-
-
+    v(1.2cm)
   }
 }

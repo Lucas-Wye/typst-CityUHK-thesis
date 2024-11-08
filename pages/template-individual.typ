@@ -14,16 +14,17 @@
     set text(font: thesis_font.times)
 
     align(
-      center,
+      left,
       text(size: thesis_font_size.lllarge, weight: "bold")[
         #show heading: x => x.body
         #heading(pagetitle, numbering: none, level: titlelevel, outlined: outlined)
-        #v(1em)],
+        #v(1em)
+      ],
     )
 
     block(width: 100%)[
       #set par(justify: true)
-      #set text(size: thesis_font_size.normal)
+      #set text(size: thesis_font_size.small)
       #s
     ]
 

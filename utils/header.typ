@@ -4,7 +4,7 @@
   stroke: 0.5pt,
   spacing: 0.5em,
   font: thesis_font.times,
-  size: thesis_font_size.normal,
+  size: thesis_font_size.tiny,
   left: none,
   right: none,
   center: none,
@@ -12,14 +12,21 @@
   set text(font: font, size: size)
   locate(loc => {
     if not (query(<mzt:no-header-footer>, loc).filter(el => el.location().page() == loc.page()) != ()) {
+      let page_left = left
+      let page_right = right
+      if calc.even(loc.page()) {
+        page_left = none
+      } else {
+        page_right = none
+      }
       stack(
         spacing: spacing,
         grid(
-          columns: (1fr, 1fr, 1fr),
+          columns: (auto, 1fr, auto),
           align: (alignment.left, alignment.center, alignment.right),
-          left, center, right,
+          page_left, center, page_right,
         ),
-        line(length: 100%, stroke: stroke),
+        // line(length: 100%, stroke: stroke),
       )
     }
 
