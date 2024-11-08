@@ -4,7 +4,7 @@
   normal: 14pt,
   large: 16pt,
   llarge: 18pt,
-  lllarge: 20pt,
+  lllarge: 24.88pt,
 )
 
 #let thesis_font = (

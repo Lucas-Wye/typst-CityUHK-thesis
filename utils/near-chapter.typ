@@ -1,3 +1,10 @@
+#let numbering_chapter(c, b)={
+  if(c.numbering != none) {
+    // return "Chapter " + numbering(c.numbering,..counter(heading).at(c.location())) + ". " + b
+    return numbering(c.numbering,..counter(heading).at(c.location())) + " " + b
+  }
+}
+
 #let near-chapter = context {
   let headings_after = query(selector(heading.where(level: 1)).after(here()))
   let headings_before = query(selector(heading.where(level: 1)).before(here()))
@@ -12,9 +19,8 @@
     if headings_before.len() == 0 {
       return
     }
-    headings_before.last().body
+    numbering_chapter(headings_before.last(), headings_before.last().body)
   } else {
-
-    heading.body
+    numbering_chapter(heading, heading.body)
   }
 }

@@ -10,6 +10,7 @@
 #import "../utils/supplement.typ": show-set-supplement
 #import "../utils/twoside.typ": show-twoside-pagebreak, twoside-numbering-footer, twoside-pagebreak
 #import "../utils/near-chapter.typ": near-chapter
+#import "../utils/near-section.typ": near-section
 #import "../utils/bilingual-bibliography.typ": show-bilingual-bibliography
 #import "../utils/structure.typ": frontmatter, mainmatter
 #import "../utils/appendix.typ": appendix
@@ -21,11 +22,11 @@
 #let show-outline-indent(s) = {
 
   show outline.entry: it => {
-
     if it.level == 1 {
+      show repeat: none // different fill for level 1 and level 2
       text(weight: "bold", it)
     } else {
-      h(1em * (it.level - 1)) + it
+      h(2em * (it.level - 1)) + it
     }
   }
   s
@@ -62,10 +63,11 @@
   // Page geometry
   set page(
     paper: "a4",
+    
     margin: (
-      x: 3.18cm,
-      bottom: 2.54cm + 12pt + 30pt,
-      top: 2.54cm + 12pt + 4mm,
+      x: 3.27cm,
+      bottom: 3.8cm,
+      top: 3.8cm,
     ),
   )
   show: show-twoside-pagebreak.with(twoside: twoside)
@@ -73,13 +75,17 @@
 
   // Header and footer
   set page(
-    header-ascent: 4mm,
+    header-ascent: 24pt,
     footer-descent: 35pt,
+    header:  header(
+      left: near-chapter,
+      right: near-section
+    ), // TODO: 参考文献页面的header如何去掉
     footer: twoside-numbering-footer,
   )
 
   // Paragraph and text
-  set par(leading: 1.3em, first-line-indent: 2em, justify: true)
+  set par(leading: 1em, first-line-indent: 2em, justify: true)
   show: indent-first-par
   set text(font: thesis_font.times, size: thesis_font_size.small)
   show: show-cn-fakebold
@@ -89,14 +95,24 @@
   // Headings
   show heading: i-figured.reset-counters
 
-  set heading(numbering: "1.1")
-  show heading.where(level: 1): set text(size: thesis_font_size.llarge)
+  show heading.where(level: 1): set text(size: thesis_font_size.lllarge)
+  set heading(numbering: (..nums) => {
+    nums = nums.pos()
+    if nums.len() == 1 {
+      "Chapter " + numbering("1.", ..nums)
+    } else {
+      numbering("1.", ..nums)
+      // numbering((..nums) => nums.map(str).join("."), ..nums)
+    }
+  })
+  
   show heading.where(level: 1): x => {
     twoside-pagebreak
     v(12pt)
     x
     v(6pt)
   }
+  
   show heading.where(level: 2): set text(size: thesis_font_size.large)
   show heading.where(level: 3): set text(size: thesis_font_size.normal)
   show heading.where(level: 4): set text(size: thesis_font_size.normal)

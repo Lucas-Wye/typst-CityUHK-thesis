@@ -1,5 +1,5 @@
 #let frontmatter(s) = {
-  set page(numbering: "I")
+  set page(numbering: "i")
   counter(page).update(1)
   s
 }
