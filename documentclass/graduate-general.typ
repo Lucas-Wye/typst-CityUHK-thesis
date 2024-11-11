@@ -93,7 +93,7 @@
 
 
   // Headings
-  show heading: i-figured.reset-counters
+  show heading: i-figured.reset-counters.with(extra-kinds: ("algorithm",))
 
   show heading.where(level: 1): set text(size: thesis_font_size.lllarge)
   set heading(numbering: (..nums) => {
