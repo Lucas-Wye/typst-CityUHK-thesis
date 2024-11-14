@@ -63,7 +63,7 @@
   // Page geometry
   set page(
     paper: "a4",
-    
+
     margin: (
       x: 3.27cm,
       bottom: 3.8cm,
@@ -93,7 +93,7 @@
 
 
   // Headings
-  show heading: i-figured.reset-counters.with(extra-kinds: ("algorithm",))
+  show heading: i-figured.reset-counters.with(extra-kinds: ("algorithm", "listing"))
 
   show heading.where(level: 1): set text(size: thesis_font_size.lllarge)
   set heading(numbering: (..nums) => {
@@ -105,14 +105,14 @@
       // numbering((..nums) => nums.map(str).join("."), ..nums)
     }
   })
-  
+
   show heading.where(level: 1): x => {
     twoside-pagebreak
     v(12pt)
     x
     v(6pt)
   }
-  
+
   show heading.where(level: 2): set text(size: thesis_font_size.large)
   show heading.where(level: 3): set text(size: thesis_font_size.normal)
   show heading.where(level: 4): set text(size: thesis_font_size.normal)
@@ -121,11 +121,12 @@
 
   // Reference
   show: show-set-supplement
-  show figure: i-figured.show-figure.with(extra-prefixes: (algorithm: "alg:"))
+  show figure: i-figured.show-figure.with(extra-prefixes: (algorithm: "alg:", listing: "lst:"))
   show math.equation.where(block: true): i-figured.show-equation
   show figure.where(kind: table): set figure.caption(position: top)
   show figure.where(kind: "algorithm"): set figure(supplement: [Algorithm])
   show figure.where(kind: "algorithm"): set figure.caption(position: top)
+  show figure.where(kind: "listing"): set figure(supplement: [Listing])
 
   show: show-bilingual-bibliography
   doc
