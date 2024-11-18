@@ -1,6 +1,5 @@
 #let numbering_chapter(c, b)={
   if(c.numbering != none) {
-    // return "Chapter " + numbering(c.numbering,..counter(heading).at(c.location())) + ". " + b
     return numbering(c.numbering,..counter(heading).at(c.location())) + " " + b
   }
 }

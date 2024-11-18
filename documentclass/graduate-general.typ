@@ -80,7 +80,7 @@
     header:  header(
       left: near-chapter,
       right: near-section
-    ), // TODO: 参考文献页面的header如何去掉
+    ),
     footer: twoside-numbering-footer,
   )
 
