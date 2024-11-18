@@ -12,24 +12,25 @@
   set text(font: font, size: size)
   locate(loc => {
     if not (query(<mzt:no-header-footer>, loc).filter(el => el.location().page() == loc.page()) != ()) {
-      let page_left = left
-      let page_right = right
-      if calc.even(loc.page()) {
-        page_left = none
-      } else {
-        page_right = none
+      if not (query(<mzt:no-header>, loc).filter(el => el.location().page() == loc.page()) != ()) {
+        let page_left = left
+        let page_right = right
+        if calc.even(loc.page()) {
+          page_left = none
+        } else {
+          page_right = none
+        }
+        stack(
+          spacing: spacing,
+          grid(
+            columns: (auto, 1fr, auto),
+            align: (alignment.left, alignment.center, alignment.right),
+            page_left, center, page_right,
+          ),
+          // line(length: 100%, stroke: stroke),
+        )
       }
-      stack(
-        spacing: spacing,
-        grid(
-          columns: (auto, 1fr, auto),
-          align: (alignment.left, alignment.center, alignment.right),
-          page_left, center, page_right,
-        ),
-        // line(length: 100%, stroke: stroke),
-      )
     }
-
   })
 }
 
