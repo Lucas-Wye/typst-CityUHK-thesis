@@ -1,6 +1,8 @@
 #import "../utils/fonts.typ": thesis_font_size, thesis_font
 #import "../utils/twoside.typ": twoside-pagebreak
 
+#let panel-person-grid-fr=(1fr, 2.5fr)
+#let panel-grid-fr=(1fr, 3fr)
 #let panel-exam-page(
   info: (:),
   pagetitle,
@@ -18,12 +20,14 @@
 
     align(
       center,
-      text(size: thesis_font_size.llarge)[
-        #show heading: info.univ-en + "\n" + pagetitle
+      [
+        #show heading: x => {
+          info.univ-en + "\n" + x.body
+        }
+        #show heading: text.with(size: thesis_font_size.small, weight: "bold") 
         #heading(pagetitle, numbering: none, level: 1, outlined: true)
         #v(1em)
       ],
-      // TODO: make heading smaller
     )
 
     set grid(
@@ -39,7 +43,7 @@
       [
         #set text(size: thesis_font_size.tiny)
         #grid(
-          columns: (auto, 1fr),
+          columns: panel-person-grid-fr,
           align: (start, left),
           "Surname:", info.surname,
           "First Name:", info.firstname,
@@ -77,7 +81,7 @@
       [
         #set text(size: thesis_font_size.tiny, font: thesis_font.times)
         #grid(
-          columns: (auto, 1fr),
+          columns: panel-grid-fr,
           align: (start, left),
           info.supervisor.at(0), info.superdep.at(0),
           [], info.superunvi.at(0),
@@ -104,7 +108,7 @@
       [
         #set text(size: thesis_font_size.tiny, font: thesis_font.times)
         #grid(
-          columns: (auto, 1fr),
+          columns: panel-grid-fr,
           align: (start, left),
           info.supervisor.at(0), info.superdep.at(0),
           [], info.superunvi.at(0),
@@ -132,7 +136,7 @@
       [
         #set text(size: thesis_font_size.tiny, font: thesis_font.times)
         #grid(
-          columns: (auto, 1fr),
+          columns: panel-grid-fr,
           align: (start, left),
           info.supervisor.at(0), info.superdep.at(0),
           [], info.superunvi.at(0),
