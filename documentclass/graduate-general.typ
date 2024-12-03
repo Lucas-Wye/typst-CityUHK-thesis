@@ -138,7 +138,7 @@
   (
     pages: (
       cover: graduate-cover(info: info),
-      outline: show-outline-indent(main-outline(outlined: false, titlelevel: 1)),
+      outline: show-outline-indent(main-outline(outlined: true, titlelevel: 1)),
       figure-outline: figure-outline(outlined: true, titlelevel: 1),
       table-outline: table-outline(outlined: true, titlelevel: 1),
       individual: template-individual.with(outlined: true, titlelevel: 1),
