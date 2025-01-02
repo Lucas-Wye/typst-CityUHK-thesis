@@ -47,8 +47,12 @@
           columns: (auto),
           align: (center),
           text(font: thesis_font.times, info.title-en.first()),
+          v(0.05pt),
           text(font: thesis_font.times, info.title-en.last()),
+          v(0.1pt),
           text(font: thesis_font.minglu, info.title.first()),
+          v(0.1pt),
+          text(font: thesis_font.times, info.title.last()),
         )
       ],
     )
