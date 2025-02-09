@@ -99,7 +99,8 @@
   set heading(numbering: (..nums) => {
     nums = nums.pos()
     if nums.len() == 1 {
-      "Chapter " + numbering("1.", ..nums)
+      // "Chapter " + numbering("1.", ..nums)
+      numbering("1.", ..nums)
     } else {
       numbering("1.", ..nums)
       // numbering((..nums) => nums.map(str).join("."), ..nums)

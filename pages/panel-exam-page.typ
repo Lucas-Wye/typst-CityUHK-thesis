@@ -2,7 +2,7 @@
 #import "../utils/twoside.typ": twoside-pagebreak
 
 #let panel-person-grid-fr=(1fr, 2.5fr)
-#let panel-grid-fr=(1fr, 3fr)
+#let panel-grid-fr=(1fr, 3.2fr)
 #let panel-exam-page(
   info: (:),
   pagetitle,
