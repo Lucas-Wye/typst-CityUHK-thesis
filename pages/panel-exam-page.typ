@@ -2,7 +2,7 @@
 #import "../utils/twoside.typ": twoside-pagebreak
 
 #let panel-person-grid-fr=(1fr, 2.5fr)
-#let panel-grid-fr=(1fr, 3.2fr)
+#let panel-grid-fr=(1.2fr, 3.2fr)
 #let panel-exam-page(
   info: (:),
   pagetitle,
@@ -37,7 +37,7 @@
     )
     // set align(center)
 
-    let block_width = 85%
+    let block_width = 100%
     block(
       width: block_width,
       [
@@ -110,10 +110,12 @@
         #grid(
           columns: panel-grid-fr,
           align: (start, left),
-          info.supervisor.at(0), info.superdep.at(0),
-          [], info.superunvi.at(0),
-          info.supervisor.at(1), info.superdep.at(1),
-          [], info.superunvi.at(1),
+          info.panels.at(0), info.paneldep.at(0),
+          [], info.panelunvi.at(0),
+          info.panels.at(1), info.paneldep.at(1),
+          [], info.panelunvi.at(1),
+          info.panels.at(2), info.paneldep.at(2),
+          [], info.panelunvi.at(2),
         )
       ],
     )
@@ -138,10 +140,10 @@
         #grid(
           columns: panel-grid-fr,
           align: (start, left),
-          info.supervisor.at(0), info.superdep.at(0),
-          [], info.superunvi.at(0),
-          info.supervisor.at(1), info.superdep.at(1),
-          [], info.superunvi.at(1),
+          info.examiner.at(0), info.examinerdep.at(0),
+          [], info.examinerunvi.at(0),
+          info.examiner.at(1), info.examinerdep.at(1),
+          [], info.examinerunvi.at(1),
         )
       ],
     )
