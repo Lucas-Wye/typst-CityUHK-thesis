@@ -2,7 +2,7 @@
 #import "../utils/twoside.typ": twoside-pagebreak
 
 #let panel-person-grid-fr=(1fr, 2.5fr)
-#let panel-grid-fr=(1.2fr, 3.2fr)
+#let panel-grid-fr=(1.8fr, 3.2fr)
 #let panel-exam-page(
   info: (:),
   pagetitle,
@@ -11,7 +11,8 @@
     twoside-pagebreak
     set page(
       margin: (
-        x: 3.27cm,
+        // x: 3.27cm,
+        x: 3.05cm,
         bottom: 2.5cm,
         top: 2.5cm,
       ),
@@ -45,10 +46,10 @@
         #grid(
           columns: panel-person-grid-fr,
           align: (start, left),
-          "Surname:", info.surname,
-          "First Name:", info.firstname,
-          "Degree:", info.degree,
-          "College/Department:", info.department,
+          [*Surname:*], info.surname,
+          [*First Name:*], info.firstname,
+          [*Degree:*], info.degree,
+          [*College/Department:*], info.department,
         )
       ],
     )
@@ -56,6 +57,7 @@
     block(
       width: block_width,
       [
+        #set text(weight: "bold")
         #grid(
           columns: (auto),
           align: (start),
@@ -68,11 +70,11 @@
     block(
       width: block_width,
       [
-        #set text(size: thesis_font_size.tiny, style: "italic")
+        #set text(size: thesis_font_size.tiny, weight: "bold")
         #grid(
           columns: (auto),
           align: (start),
-          "Supervisor(s)",
+          "Supervisor(s):",
         )
       ],
     )
@@ -85,6 +87,28 @@
           align: (start, left),
           info.supervisor.at(0), info.superdep.at(0),
           [], info.superunvi.at(0),
+        )
+      ],
+    )
+    v(10pt)
+    block(
+      width: block_width,
+      [
+        #set text(size: thesis_font_size.tiny, weight: "bold")
+        #grid(
+          columns: (auto),
+          align: (start),
+          "External Supervisor(s):",
+        )
+      ],
+    )
+    block(
+      width: block_width,
+      [
+        #set text(size: thesis_font_size.tiny, font: thesis_font.times)
+        #grid(
+          columns: panel-grid-fr,
+          align: (start, left),
           info.supervisor.at(1), info.superdep.at(1),
           [], info.superunvi.at(1),
         )
@@ -95,11 +119,11 @@
     block(
       width: block_width,
       [
-        #set text(size: thesis_font_size.tiny, style: "italic")
+        #set text(size: thesis_font_size.tiny, weight: "bold")
         #grid(
           columns: (auto),
           align: (start),
-          "Qualifying Panel Member(s)",
+          "Qualifying Panel Member(s):",
         )
       ],
     )
@@ -114,8 +138,6 @@
           [], info.panelunvi.at(0),
           info.panels.at(1), info.paneldep.at(1),
           [], info.panelunvi.at(1),
-          info.panels.at(2), info.paneldep.at(2),
-          [], info.panelunvi.at(2),
         )
       ],
     )
@@ -124,7 +146,7 @@
     block(
       width: block_width,
       [
-        #set text(size: thesis_font_size.tiny, style: "italic")
+        #set text(size: thesis_font_size.tiny, weight: "bold")
         #grid(
           columns: (auto),
           align: (start),
@@ -144,6 +166,16 @@
           [], info.examinerunvi.at(0),
           info.examiner.at(1), info.examinerdep.at(1),
           [], info.examinerunvi.at(1),
+          info.examiner.at(2), info.examinerdep.at(2),
+          [], info.examinerunvi.at(2),
+          info.examiner.at(3), info.examinerdep.at(3),
+          [], info.examinerunvi.at(3),
+          info.examiner.at(4), info.examinerdep.at(4),
+          [], info.examinerunvi.at(4),
+          info.examiner.at(5), info.examinerdep.at(5),
+          [], info.examinerunvi.at(5),
+          info.examiner.at(6), info.examinerdep.at(6),
+          [], info.examinerunvi.at(6),
         )
       ],
     )
