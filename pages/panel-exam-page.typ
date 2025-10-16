@@ -90,30 +90,32 @@
         )
       ],
     )
-    v(10pt)
-    block(
-      width: block_width,
-      [
-        #set text(size: thesis_font_size.tiny, weight: "bold")
-        #grid(
-          columns: (auto),
-          align: (start),
-          "External Supervisor(s):",
-        )
-      ],
-    )
-    block(
-      width: block_width,
-      [
-        #set text(size: thesis_font_size.tiny, font: thesis_font.times)
-        #grid(
-          columns: panel-grid-fr,
-          align: (start, left),
-          info.supervisor.at(1), info.superdep.at(1),
-          [], info.superunvi.at(1),
-        )
-      ],
-    )
+    if info.isjoint {
+      v(10pt)
+      block(
+        width: block_width,
+        [
+          #set text(size: thesis_font_size.tiny, weight: "bold")
+          #grid(
+            columns: (auto),
+            align: (start),
+            "External Supervisor(s):",
+          )
+        ],
+      )
+      block(
+        width: block_width,
+        [
+          #set text(size: thesis_font_size.tiny, font: thesis_font.times)
+          #grid(
+            columns: panel-grid-fr,
+            align: (start, left),
+            info.supervisor.at(1), info.superdep.at(1),
+            [], info.superunvi.at(1),
+          )
+        ],
+      )
+    }
 
     v(10pt)
     block(
@@ -134,10 +136,10 @@
         #grid(
           columns: panel-grid-fr,
           align: (start, left),
-          info.panels.at(0), info.paneldep.at(0),
-          [], info.panelunvi.at(0),
-          info.panels.at(1), info.paneldep.at(1),
-          [], info.panelunvi.at(1),
+          ..for i in range(0, info.panels.len()) {
+            (info.panels.at(i), info.paneldep.at(i),
+            [], info.panelunvi.at(i))
+          }
         )
       ],
     )
@@ -162,24 +164,10 @@
         #grid(
           columns: panel-grid-fr,
           align: (start, left),
-          info.examiner.at(0), info.examinerdep.at(0),
-          [], info.examinerunvi.at(0),
-          info.examiner.at(1), info.examinerdep.at(1),
-          [], info.examinerunvi.at(1),
-          info.examiner.at(2), info.examinerdep.at(2),
-          [], info.examinerunvi.at(2),
-          info.examiner.at(3), info.examinerdep.at(3),
-          [], info.examinerunvi.at(3),
-          info.examiner.at(4), info.examinerdep.at(4),
-          [], info.examinerunvi.at(4),
-          info.examiner.at(5), info.examinerdep.at(5),
-          [], info.examinerunvi.at(5),
-          info.examiner.at(6), info.examinerdep.at(6),
-          [], info.examinerunvi.at(6),
-          // ..(0..info.examiner.len()).map(i => (
-          //     info.examiner.at(i), info.examinerdep.at(i),
-          //     [], info.examinerunvi.at(i)
-          // )).flatten(),
+          ..for i in range(0, info.examiner.len()) {
+            (info.examiner.at(i), info.examinerdep.at(i),
+            [], info.examinerunvi.at(i))
+          }
         )
       ],
     )
