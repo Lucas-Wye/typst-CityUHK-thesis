@@ -176,6 +176,10 @@
           [], info.examinerunvi.at(5),
           info.examiner.at(6), info.examinerdep.at(6),
           [], info.examinerunvi.at(6),
+          // ..(0..info.examiner.len()).map(i => (
+          //     info.examiner.at(i), info.examinerdep.at(i),
+          //     [], info.examinerunvi.at(i)
+          // )).flatten(),
         )
       ],
     )

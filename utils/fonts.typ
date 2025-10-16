@@ -9,7 +9,8 @@
 
 #let thesis_font = (
   times: ("Times New Roman"),
-  minglu: ("mingliu"),
+  // minglu: ("mingliu"),
+  minglu: ("PMingLiU"),
 )
 
 #let engfont(s) = {

@@ -70,11 +70,14 @@
           text(font: thesis_font.minglu, info.department-zh),
           text(font: thesis_font.times, "in Partial Fulfillment of the Requirements"),
           text(font: thesis_font.times, "for the Degree of Doctor of Philosophy"),
-          text(font: thesis_font.minglu, "哲学博士学位"),
+          text(font: thesis_font.minglu, "哲學博士學位"),
+          if info.isjoint { text(font: thesis_font.times, "awarded by City University of Hong Kong") },
+          if info.isjoint { text(font: thesis_font.times, "for successfully completion of the joint programme with") },
+          if info.isjoint { text(font: thesis_font.times, info.partnerunvi) },
         )
       ],
     )
-    v(1fr)
+    v(3pt)
 
     block(
       width: 80%,
@@ -88,7 +91,7 @@
       ],
     )
 
-    v(36pt)
+    v(19pt)
 
     block(
       width: 80%,
@@ -103,7 +106,7 @@
       ],
     )
 
-    v(36pt)
+    v(19pt)
 
     block(
       width: 80%,
